@@ -19,6 +19,7 @@ spec:
   source:
     repoURL: https://github.com/yogstation13-infrastructure/argocd.git
     targetRevision: HEAD
+    path: .
 
     plugin:
       name: std-build
