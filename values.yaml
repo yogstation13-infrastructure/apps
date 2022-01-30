@@ -5,3 +5,7 @@ project: default
 argocd:
   namespace: argocd
   project:
+
+jenkins:
+  namespace: jenkins
+  project:
