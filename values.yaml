@@ -1,0 +1,7 @@
+destinationName: in-cluster
+
+project: default
+
+argocd:
+  namespace: argocd
+  #project:

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: yogstation-apps
+description: Yogstation App of Apps
+
+type: application
+
+version: 0.0.1
