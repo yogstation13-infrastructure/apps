@@ -15,7 +15,7 @@ spec:
   destination:
     name: {{ .Values.destinationName }}
     namespace: {{ .Values.argocd.namespace }}
-  project: {{ default .Values.project .Values.argocd.namespace }}
+  project: {{ default .Values.project .Values.argocd.project }}
   source:
     repoURL: https://github.com/yogstation13-infrastructure/argocd.git
     targetRevision: HEAD

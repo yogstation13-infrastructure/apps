@@ -4,4 +4,4 @@ project: default
 
 argocd:
   namespace: argocd
-  #project:
+  project:
