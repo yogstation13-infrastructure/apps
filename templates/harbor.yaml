@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: harbor
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m
+
+  destination:
+    name: {{ .Values.destinationName }}
+    namespace: {{ .Values.harbor.namespace }}
+  project: {{ default .Values.project .Values.harbor.project }}
+  source:
+    repoURL: https://github.com/yogstation13-infrastructure/harbor.git
+    targetRevision: HEAD
+    path: .
+
+    plugin:
+      name: std-build

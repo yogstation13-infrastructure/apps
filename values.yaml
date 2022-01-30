@@ -9,3 +9,7 @@ argocd:
 jenkins:
   namespace: jenkins
   project:
+
+harbor:
+  namespace: harbor
+  project:
