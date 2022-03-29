@@ -3,13 +3,21 @@ destinationName: in-cluster
 project: default
 
 argocd:
+  enabled: true
   namespace: argocd
   project:
 
 jenkins:
+  enabled: true
   namespace: jenkins
   project:
 
 harbor:
+  enabled: true
   namespace: harbor
+  project:
+
+yogbotkt:
+  enabled: false
+  namespace: yogbotkt
   project:

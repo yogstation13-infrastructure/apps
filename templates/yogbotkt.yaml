@@ -1,10 +1,10 @@
-{{- if .Values.harbor.enabled }}
+{{- if .Values.yogbotkt.enabled }}
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: harbor
-  namespace: argocd
+  name: yogbot-kt
+  namespace: yogbot-kt
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -23,10 +23,10 @@ spec:
 
   destination:
     name: {{ .Values.destinationName }}
-    namespace: {{ .Values.harbor.namespace }}
-  project: {{ default .Values.project .Values.harbor.project }}
+    namespace: {{ .Values.yogbotkt.namespace }}
+  project: {{ default .Values.project .Values.yogbotkt.project }}
   source:
-    repoURL: https://github.com/yogstation13-infrastructure/harbor.git
+    repoURL: https://github.com/yogstation13-infrastructure/yogbot-kt.git
     targetRevision: HEAD
     path: .
 
