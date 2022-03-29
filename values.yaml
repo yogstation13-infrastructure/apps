@@ -18,6 +18,6 @@ harbor:
   project:
 
 yogbotkt:
-  enabled: true
+  enabled: false
   namespace: yogbotkt
   project:
