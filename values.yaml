@@ -21,3 +21,8 @@ yogbotkt:
   enabled: true
   namespace: yogbotkt
   project:
+
+drone:
+  enabled: false
+  namespace: drone
+  project:

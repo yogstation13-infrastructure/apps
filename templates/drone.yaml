@@ -1,0 +1,36 @@
+{{- if .Values.drone.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: drone
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m
+
+  destination:
+    name: {{ .Values.destinationName }}
+    namespace: {{ .Values.drone.namespace }}
+  project: {{ default .Values.project .Values.drone.project }}
+  source:
+    repoURL: https://github.com/yogstation13-infrastructure/drone.git
+    targetRevision: HEAD
+    path: .
+
+    plugin:
+      name: std-build
+
+{{- end }}
