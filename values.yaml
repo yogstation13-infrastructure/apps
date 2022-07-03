@@ -8,7 +8,7 @@ argocd:
   project:
 
 jenkins:
-  enabled: true
+  enabled: false
   namespace: jenkins
   project:
 
