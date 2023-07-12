@@ -1,0 +1,36 @@
+{{- if .Values.influxdb.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: influxdb
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m
+
+  destination:
+    name: {{ .Values.destinationName }}
+    namespace: {{ .Values.influxdb.namespace }}
+  project: {{ default .Values.project .Values.influxdb.project }}
+  source:
+    repoURL: https://github.com/yogstation13-infrastructure/influxdb.git
+    targetRevision: HEAD
+    path: .
+
+    plugin:
+      name: std-build
+
+{{- end }}

@@ -26,3 +26,8 @@ drone:
   enabled: false
   namespace: drone
   project:
+
+influxdb:
+  enabled: true
+  namespace: influxdb
+  project:
