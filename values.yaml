@@ -31,3 +31,8 @@ influxdb:
   enabled: true
   namespace: influxdb
   project:
+
+cloudbeaver:
+  enabled: true
+  namespace: cloudbeaver
+  project:
